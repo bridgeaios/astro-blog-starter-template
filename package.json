@@ -1,14 +1,18 @@
 {
-	"name": "astro-blog-starter-template",
-	"description": "Build a personal website, blog, or portfolio with Astro.",
+	"name": "bridge-ai-os",
+	"description": "Bridge AI OS — a human-first AI operating system built on transparency, ethics, and global inclusion.",
 	"cloudflare": {
-		"label": "Astro Framework Starter",
+		"label": "Bridge AI OS",
 		"products": [
 			"Workers"
 		],
-		"categories": [],
-		"preview_icon_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/394ca3c9-d351-4036-035a-9f6dfa26dd00/public",
-		"preview_image_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/f40a6577-eed5-4f3e-cef4-b5ef0a1be100/preview",
+		"categories": [
+			"AI",
+			"Developer Tools",
+			"Content & Knowledge"
+		],
+		"preview_icon_url": "https://ai-os.co.za/bridge-ai-os.svg",
+		"preview_image_url": "https://ai-os.co.za/bridge-ai-social.jpg",
 		"publish": true
 	},
 	"dependencies": {
@@ -23,6 +27,7 @@
 		"wrangler": "4.56.0"
 	},
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"astro": "astro",
 		"build": "astro build",
@@ -31,6 +36,5 @@
 		"deploy": "wrangler deploy",
 		"dev": "astro dev",
 		"preview": "astro build && wrangler dev"
-	},
-	"type": "module"
+	}
 }
