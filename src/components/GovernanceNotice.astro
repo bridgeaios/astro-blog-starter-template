@@ -1,0 +1,101 @@
+---
+interface Props {
+	level?: "info" | "warning" | "critical";
+	title?: string;
+}
+
+const {
+	level = "info",
+	title = "Governance Notice",
+} = Astro.props;
+
+const levelLabel = {
+	info: "Informational",
+	warning: "Advisory",
+	critical: "Critical",
+}[level];
+---
+
+<aside
+	class={`governance-notice ${level}`}
+	role="note"
+	aria-labelledby="governance-title"
+	data-system="bridge-ai-os"
+	data-layer="governance"
+>
+	<header class="notice-header">
+		<span class="notice-badge" aria-hidden="true">
+			⚖
+		</span>
+		<h3 id="governance-title">
+			{title}
+			<small>— {levelLabel}</small>
+		</h3>
+	</header>
+
+	<div class="notice-content">
+		<slot />
+	</div>
+</aside>
+
+<style>
+	.governance-notice {
+		margin: 3rem 0;
+		padding: 1.5rem 1.75rem;
+		border-radius: 12px;
+		border-left: 4px solid var(--accent);
+		background: rgba(var(--gray-light), 0.35);
+		box-shadow: var(--box-shadow);
+	}
+
+	.notice-header {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.notice-header h3 {
+		margin: 0;
+		font-size: 1.1rem;
+		color: rgb(var(--black));
+	}
+
+	.notice-header small {
+		font-weight: normal;
+		font-size: 0.75rem;
+		opacity: 0.7;
+	}
+
+	.notice-badge {
+		font-size: 1.2rem;
+	}
+
+	.notice-content {
+		font-size: 0.95rem;
+		line-height: 1.6;
+		color: rgb(var(--gray-dark));
+	}
+
+	/* Governance levels */
+
+	.governance-notice.info {
+		border-left-color: var(--accent);
+	}
+
+	.governance-notice.warning {
+		border-left-color: #f2b705; /* amber */
+		background: rgba(242, 183, 5, 0.08);
+	}
+
+	.governance-notice.critical {
+		border-left-color: #e5484d; /* red */
+		background: rgba(229, 72, 77, 0.08);
+	}
+
+	@media (max-width: 720px) {
+		.governance-notice {
+			padding: 1.25rem;
+		}
+	}
+</style>
