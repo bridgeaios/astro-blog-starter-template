@@ -4,14 +4,19 @@ interface Props {
 }
 
 const { date } = Astro.props;
+
+const isoDate = date.toISOString();
+const humanDate = date.toLocaleDateString('en-us', {
+	year: 'numeric',
+	month: 'short',
+	day: 'numeric',
+});
 ---
 
-<time datetime={date.toISOString()}>
-	{
-		date.toLocaleDateString('en-us', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})
-	}
+<time
+	datetime={isoDate}
+	title={`Published on ${humanDate}`}
+	data-system="bridge-ai-os"
+>
+	{humanDate}
 </time>
