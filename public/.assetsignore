@@ -1,4 +1,75 @@
-_worker.js
-_routes.json
-_headers
-_redirects
+# =========================
+# 🌉 Bridge AI OS – Assets Ignore
+# =========================
+# Exclude non-public, build-only, or development artifacts
+# from Cloudflare static asset uploads.
+
+# -------------------------
+# Node / tooling
+# -------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -------------------------
+# Astro / build internals
+# -------------------------
+.astro/
+.cache/
+dist/.vite/
+dist/**/*.map
+
+# -------------------------
+# Git & CI
+# -------------------------
+.git/
+.gitignore
+.github/
+.gitlab/
+.gitlab-ci.yml
+
+# -------------------------
+# OS / editor noise
+# -------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+
+# -------------------------
+# Documentation & meta
+# -------------------------
+README.md
+LICENSE
+CHANGELOG.md
+
+# -------------------------
+# Source-only files
+# (Astro compiles these — they should not be served raw)
+# -------------------------
+src/**
+!public/**
+
+# -------------------------
+# Environment & secrets
+# -------------------------
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# -------------------------
+# Optional: analytics or debug exports
+# -------------------------
+logs/
+coverage/
+reports/
+
+# -------------------------
+# Explicit allowlist note
+# -------------------------
+# Everything in /public is intentionally included
