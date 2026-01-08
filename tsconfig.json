@@ -1,8 +1,38 @@
 {
-	"extends": "astro/tsconfigs/strict",
-	"include": [".astro/types.d.ts", "**/*"],
-	"exclude": ["dist"],
-	"compilerOptions": {
-		"strictNullChecks": true
+	"name": "bridge-ai-os",
+	"description": "Bridge AI OS — a human-first AI operating system built on transparency, ethics, and global inclusion.",
+	"private": true,
+	"type": "module",
+
+	"cloudflare": {
+		"label": "Bridge AI OS",
+		"products": ["Workers"],
+		"categories": ["AI", "Developer Tools", "Content & Knowledge"],
+		"preview_icon_url": "https://ai-os.co.za/bridge-ai-os.svg",
+		"preview_image_url": "https://ai-os.co.za/bridge-ai-social.jpg",
+		"publish": true
+	},
+
+	"dependencies": {
+		"astro": "5.16.2",
+		"@astrojs/cloudflare": "12.6.12",
+		"@astrojs/mdx": "4.3.12",
+		"@astrojs/rss": "4.0.14",
+		"@astrojs/sitemap": "3.6.0",
+		"typescript": "5.9.3"
+	},
+
+	"devDependencies": {
+		"wrangler": "4.56.0"
+	},
+
+	"scripts": {
+		"astro": "astro",
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro build && wrangler dev",
+		"deploy": "wrangler deploy",
+		"cf-typegen": "wrangler types",
+		"check": "astro build && tsc && wrangler deploy --dry-run"
 	}
 }
